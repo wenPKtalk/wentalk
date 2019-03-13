@@ -22,7 +22,28 @@
 
 ### 二. 线程安全容器
 
-ConcurrentHashMap,有序的ConcunrrentSkipListMap,通过类似快照机制，实现线程安全的CopyOnWriteArrayList
+**java.util.concurrent 包提供的容器（Queue、List、Set）、Map，从命名上可以大概区分为 Concurrent*、CopyOnWrite和 Blocking**
+
+**Map形式的：**
+
+1. ConcurrentHashMap：jdk8以前使用分段锁，jdk8后采用CAS
+
+2. ConcunrrentSkipListMap：
+3. ConcurrentSkipListMap：是TreeMap的线程安全版本。
+
+**List形式的：**
+
+CopyOnWriteArrayList：通过快照实现，适用于读多写少的场景。在对其实例进行修改操作（add/remove等）会新建一个数据并修改，修改完毕之后，再将原来的引用指向新的数组。
+
+**Set形式的：**
+
+CopyOnWriteArraySet：同上CopyOnWriteArrayList
+
+**Queue形式的：**
+
+[](!)
+
+
 
 ### 三. 并发队列
 
